@@ -5,11 +5,10 @@ import Button from "./components/Button"
 
 const StatisticLine = ({text, value}) => {
   return(
-   
-      <div>
-        {text} {value}
-      </div>
-    
+      <tr>
+        <td>{text}</td>
+        <td>{value}</td>
+      </tr>
   )
 }
 
@@ -25,12 +24,16 @@ const Statistics = ({good, neutral, bad}) => {
 
   return (
     <div>
-      <StatisticLine text = "good" value = {good} />
-      <StatisticLine text = "neutral" value = {neutral} />
-      <StatisticLine text = "bad" value = {bad} />
-      <StatisticLine text = "all" value = {all} />
-      <StatisticLine text = "average" value = {averageScore} />
-      <StatisticLine text = "positive" value = {positivePercentage} />
+    <table>
+      <tbody>
+        <StatisticLine text = "good" value = {good} />
+        <StatisticLine text = "neutral" value = {neutral} />
+        <StatisticLine text = "bad" value = {bad} />
+        <StatisticLine text = "all" value = {all} />
+        <StatisticLine text = "average" value = {averageScore.toFixed(1)} />
+        <StatisticLine text = "positive" value = {positivePercentage.toFixed(1) + "%"} />
+        </tbody>
+      </table>
     </div>
   )
 }
